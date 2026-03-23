@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { CAT_MAP } from '@/utils/constants'
 import { calcAvgEmotion } from '@/utils/emotion'
+import { useCountUp } from '@/hooks/useCountUp'
 import { getMonthStr } from '@/utils/time'
 import type { RecordsMap } from '@/utils/types'
 import styles from './RecapView.module.scss'
@@ -42,6 +43,8 @@ export default function RecapView({ records }: RecapViewProps) {
   }, [records])
 
   const { title, sub } = getMonthStr()
+  const countedFilled = useCountUp(filled, 900, 190)
+  const countedRatio  = useCountUp(positiveRatio, 1000, 240)
 
   const insightText = avgEmo != null
     ? exerciseDiff != null && exerciseDiff > 0
@@ -91,11 +94,11 @@ export default function RecapView({ records }: RecapViewProps) {
 
       <div className={styles.statsGrid}>
         <div className={styles.statBox} style={{ animationDelay: '190ms' }}>
-          <div className={styles.statVal} style={{ color: '#6366F1' }}>{filled}</div>
+          <div className={styles.statVal} style={{ color: '#6366F1' }}>{countedFilled}</div>
           <div className={styles.statLabel}>총 기록 블록</div>
         </div>
         <div className={styles.statBox} style={{ animationDelay: '240ms' }}>
-          <div className={styles.statVal} style={{ color: '#10B981' }}>{positiveRatio}%</div>
+          <div className={styles.statVal} style={{ color: '#10B981' }}>{countedRatio}%</div>
           <div className={styles.statLabel}>긍정 비율</div>
         </div>
       </div>
