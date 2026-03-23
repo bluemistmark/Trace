@@ -1,3 +1,5 @@
+import type React from 'react'
+
 export type CategoryId = 'work' | 'study' | 'exercise' | 'rest' | 'personal' | 'meal'
 
 export interface Category {
@@ -19,6 +21,6 @@ export type TabId = 'home' | 'dashboard' | 'recap'
 
 export interface Tab {
   id: TabId
-  icon: string
+  icon: React.ReactNode
   label: string
 }

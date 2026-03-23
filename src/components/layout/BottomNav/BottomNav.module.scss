@@ -44,9 +44,15 @@
 }
 
 .icon {
-  font-size: 20px;
-  display: inline-block;
-  transition: transform 0.12s var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: transform 0.12s var(--ease), color 0.2s;
+}
+
+.active .icon {
+  color: var(--primary);
 }
 
 .label {

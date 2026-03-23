@@ -17,7 +17,7 @@ export default function BottomNav({ tabs, activeTab, onChange }: BottomNavProps)
           onClick={() => onChange(id)}
         >
           <div className={styles.iconWrap}>
-            <span className={styles.icon}>{icon}</span>
+            <span className={styles.icon} aria-hidden="true">{icon}</span>
           </div>
           <span className={styles.label}>{label}</span>
         </div>

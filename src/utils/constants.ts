@@ -1,4 +1,4 @@
-import type { Category, RecordsMap, Tab } from './types'
+import type { Category, RecordsMap } from './types'
 
 export const LS_KEY = 'trace_records_v1'
 
@@ -49,8 +49,3 @@ export const SEED: RecordsMap = {
   '12:30': { category: 'rest',     emotion: 7, memo: '산책 & 환기' },
 }
 
-export const TABS: Tab[] = [
-  { id: 'home',      icon: '⏱',  label: '타임라인' },
-  { id: 'dashboard', icon: '📊', label: '대시보드' },
-  { id: 'recap',     icon: '📅', label: '리캡' },
-]
