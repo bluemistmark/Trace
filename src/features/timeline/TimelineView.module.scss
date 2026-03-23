@@ -1,0 +1,68 @@
+@use '@/styles/abstracts' as *;
+
+@keyframes ctPulse {
+  0%   { box-shadow: 0 0 0 0   rgba(99, 102, 241, 0.5); }
+  70%  { box-shadow: 0 0 0 7px rgba(99, 102, 241, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(99, 102, 241, 0); }
+}
+
+.container {
+  flex: 1;
+  @include no-scrollbar;
+}
+
+.inner { padding: 4px 0 90px; }
+
+.row {
+  display: flex;
+  align-items: stretch;
+  padding: 0 16px;
+  min-height: 58px;
+}
+
+.timeLabel {
+  width: 44px;
+  flex-shrink: 0;
+  padding-top: 8px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  padding-right: 12px;
+  letter-spacing: -0.2px;
+  font-weight: 500;
+
+  &.invisible { visibility: hidden; }
+}
+
+.blockWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 3px 0;
+}
+
+// ── 현재 시간 인디케이터 ───────────────────────────────
+.currentTime {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  margin: 1px 0;
+}
+
+.ctSpacer { width: 44px; flex-shrink: 0; }
+
+.ctDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+  animation: ctPulse 2.4s ease-out infinite;
+}
+
+.ctLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--primary) 0%, transparent 80%);
+}

@@ -1,0 +1,67 @@
+@use '@/styles/abstracts' as *;
+
+.scroll {
+  flex: 1;
+  padding: 16px 16px 90px;
+  @include no-scrollbar;
+}
+
+.monthHeader { text-align: center; margin-bottom: 20px; }
+.monthTitle  { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
+.monthSub    { font-size: 13px; color: var(--text-muted); margin-top: 5px; }
+
+.insightBox {
+  background: $primary-10;
+  border: 1px solid $primary-22;
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  margin-bottom: 10px;
+  @include fade-up($delay: 40ms);
+
+  &Label {
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 8px;
+  }
+
+  &Text { font-size: 14px; line-height: 1.65; color: var(--text-sub); }
+}
+
+.card {
+  @include card;
+  margin-bottom: 10px;
+  @include fade-up;
+}
+
+.cardTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-sub);
+  margin-bottom: 14px;
+  letter-spacing: -0.1px;
+}
+
+.rankItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  @include fade-up;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.statBox {
+  @include stat-box;
+}
+
+.statVal   { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
+.statLabel { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+.noData { text-align: center; padding: 24px 0; color: var(--text-muted); font-size: 13px; }

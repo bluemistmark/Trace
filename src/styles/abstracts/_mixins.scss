@@ -1,0 +1,64 @@
+@use 'variables' as *;
+
+// ── LAYOUT ─────────────────────────────────────────────
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+// ── SCROLL ─────────────────────────────────────────────
+@mixin no-scrollbar {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar { display: none; }
+}
+
+// ── CARD ───────────────────────────────────────────────
+@mixin card($radius: $radius-lg) {
+  background: var(--surface);
+  border-radius: $radius;
+  padding: 18px;
+}
+
+// ── ANIMATION ──────────────────────────────────────────
+// keyframe을 mixin 안에 포함 → 각 module에서 호출될 때 같은 해시로 스코프됨
+@mixin fade-up($duration: 0.28s, $delay: 0ms) {
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  opacity: 0;
+  animation: fadeUp $duration var(--ease-out) #{$delay} forwards;
+}
+
+// ── TEXT TRUNCATE ───────────────────────────────────────
+@mixin truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// ── STAT BOX ───────────────────────────────────────────
+@mixin stat-box {
+  @include card;
+  @include fade-up;
+}
+
+// ── GLASS BLUR ─────────────────────────────────────────
+@mixin glass($bg-color: rgba(12, 12, 13, 0.95)) {
+  background: $bg-color;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}

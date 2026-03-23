@@ -1,0 +1,29 @@
+@use 'abstracts' as *;
+@use 'base';
+
+// ── CSS CUSTOM PROPERTIES (런타임 테마) ────────────────
+:root {
+  --primary:    #{$primary};
+  --primary-10: #{$primary-10};
+  --primary-18: #{$primary-18};
+  --primary-22: #{$primary-22};
+
+  --bg:         #{$bg};
+  --surface:    #{$surface};
+  --card:       #{$card};
+  --border:     #{$border};
+
+  --text:       #{$text};
+  --text-sub:   #{$text-sub};
+  --text-muted: #{$text-muted};
+
+  --safe-bottom: #{$safe-bottom};
+
+  --ease:       #{$ease};
+  --ease-out:   #{$ease-out};
+
+  --radius-sm:  #{$radius-sm};
+  --radius-md:  #{$radius-md};
+  --radius-lg:  #{$radius-lg};
+  --radius-xl:  #{$radius-xl};
+}

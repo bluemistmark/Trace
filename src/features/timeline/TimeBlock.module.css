@@ -1,0 +1,43 @@
+.block {
+  flex: 1;
+  border-radius: var(--radius-md);
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  transition: background 0.12s var(--ease), transform 0.1s var(--ease), opacity 0.2s;
+}
+.block:hover  { background: rgba(255, 255, 255, 0.04); }
+.block:active { transform: scale(0.98); }
+
+.block.filled {
+  background: var(--surface);
+  border-left: 3px solid transparent;
+}
+.block.filled:active { transform: scale(0.99); }
+.block.pastEmpty     { opacity: 0.35; }
+.block.newRecord     { animation: blockIn 0.18s var(--ease) both; }
+
+.content { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+.emoji   { font-size: 19px; line-height: 1; flex-shrink: 0; }
+.info    { flex: 1; min-width: 0; }
+.name    { font-size: 14px; font-weight: 600; letter-spacing: -0.1px; }
+.memo    {
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.score {
+  font-size: 17px;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s;
+}
+.hint { font-size: 13px; color: var(--text-muted); font-weight: 400; }

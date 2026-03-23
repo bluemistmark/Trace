@@ -1,0 +1,85 @@
+/* ── DESIGN TOKENS ── */
+:root {
+  --primary:    #6366F1;
+  --primary-10: rgba(99, 102, 241, 0.10);
+  --primary-18: rgba(99, 102, 241, 0.18);
+  --primary-22: rgba(99, 102, 241, 0.22);
+
+  --bg:      #0C0C0D;
+  --surface: #17171A;
+  --card:    #202024;
+  --border:  #2A2A2E;
+
+  --text:       #FFFFFF;
+  --text-sub:   rgba(255, 255, 255, 0.5);
+  --text-muted: rgba(255, 255, 255, 0.3);
+
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  --ease:     cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.0, 0, 0.2, 1);
+
+  --radius-sm: 9px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+}
+
+/* ── BASE ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  max-width: 430px;
+  height: 100dvh;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* ── GLOBAL KEYFRAMES ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes blockIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes ctPulse {
+  0%   { box-shadow: 0 0 0 0   rgba(99, 102, 241, 0.5); }
+  70%  { box-shadow: 0 0 0 7px rgba(99, 102, 241, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(99, 102, 241, 0); }
+}
+@keyframes overlayIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes overlayOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes sheetUp    { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes sheetDown  { from { transform: translateY(0); } to { transform: translateY(100%); } }
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(6px) scale(0.88); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+@keyframes bubbleOut {
+  from { opacity: 1; transform: translateX(-50%) scale(1); }
+  to   { opacity: 0; transform: translateX(-50%) scale(0.88); }
+}

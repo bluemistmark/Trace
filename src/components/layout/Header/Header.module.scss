@@ -1,0 +1,71 @@
+@use '@/styles/abstracts' as *;
+
+.header {
+  padding: 18px 20px 14px;
+  @include glass(rgba(12, 12, 13, 0.97));
+  border-bottom: 0.5px solid var(--border);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.row1 {
+  @include flex-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.logoIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: $bg;
+  border: 1.5px solid var(--border);
+  @include flex-center;
+  flex-shrink: 0;
+}
+
+.appName {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.dateText {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+// ── 인라인 요약 ────────────────────────────────────────
+.summary {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+.summaryItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.summaryDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.summaryDivider {
+  width: 1px;
+  height: 12px;
+  background: var(--border);
+  margin: 0 12px;
+}

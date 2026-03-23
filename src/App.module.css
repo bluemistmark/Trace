@@ -1,0 +1,7 @@
+.viewWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeUp 0.2s var(--ease-out) both;
+}

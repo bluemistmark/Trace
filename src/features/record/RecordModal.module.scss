@@ -1,0 +1,145 @@
+@use '@/styles/abstracts' as *;
+
+@keyframes overlayIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes overlayOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes sheetUp    { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes sheetDown  { from { transform: translateY(0); } to { transform: translateY(100%); } }
+@keyframes fadeUp     { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: overlayIn 0.2s var(--ease) both;
+
+  &.closing { animation: overlayOut 0.24s var(--ease) forwards; pointer-events: none; }
+}
+
+.sheet {
+  width: 100%;
+  max-width: $max-width;
+  background: #1A1A1D;
+  border-radius: $radius-xl $radius-xl 0 0;
+  padding-bottom: calc(16px + #{$safe-bottom});
+  animation: sheetUp 0.3s var(--ease-out) both;
+  max-height: 92vh;
+  @include no-scrollbar;
+
+  &.closing { animation: sheetDown 0.26s var(--ease) forwards; }
+}
+
+.handle {
+  width: 38px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  margin: 12px auto 0;
+}
+
+.header {
+  padding: 16px 22px 14px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.title { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
+.time  { font-size: 13px; color: var(--text-sub); margin-top: 3px; }
+
+.body { padding: 22px 22px 0; }
+
+.sectionLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-sub);
+  margin-bottom: 10px;
+  letter-spacing: -0.1px;
+}
+
+// ── 카테고리 ───────────────────────────────────────────
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.chip {
+  background: var(--card);
+  border: 1.5px solid transparent;
+  border-radius: 14px;
+  padding: 14px 8px;
+  @include flex-col;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, transform 0.1s var(--ease);
+
+  &:active { transform: scale(0.95); }
+
+  &.selected {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.12);
+
+    .chipName { color: var(--text); font-weight: 600; }
+  }
+}
+
+.chipEmoji { font-size: 26px; }
+.chipName  { font-size: 12px; font-weight: 500; color: var(--text-sub); transition: color 0.12s; }
+
+// ── 감정 ───────────────────────────────────────────────
+.emotionSection { margin-bottom: 26px; }
+
+.emotionDisplay {
+  @include flex-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.emotionScore {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -2px;
+  transition: color 0.2s var(--ease);
+}
+
+.emotionDescWrap { text-align: right; padding-bottom: 6px; }
+.emotionDesc     { font-size: 14px; color: var(--text-sub); line-height: 1.4; }
+
+// ── 메모 ───────────────────────────────────────────────
+.memo {
+  width: 100%;
+  background: var(--card);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 13px 14px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  resize: none;
+  outline: none;
+  margin-bottom: 20px;
+  transition: border-color 0.18s;
+  line-height: 1.5;
+  overflow: hidden;
+  min-height: 48px;
+
+  &:focus         { border-color: rgba(99, 102, 241, 0.5); }
+  &::placeholder  { color: var(--text-muted); }
+}
+
+.categoryHint {
+  font-size: 12px;
+  color: #FF9F0A;
+  margin-bottom: 12px;
+  animation: fadeUp 0.16s var(--ease-out) both;
+}
+
+.btnRow { display: flex; gap: 10px; }
