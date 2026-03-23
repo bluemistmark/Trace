@@ -4,7 +4,7 @@ import { resolve } from "path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "https://github.com/bluemistmark/Trace.git",
+  base: "/Trace/",
   resolve: {
     alias: {
       "@": resolve(__dirname, "src"),
