@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use "variables" as *;
 
 // ── LAYOUT ─────────────────────────────────────────────
 @mixin flex-center {
@@ -22,7 +22,9 @@
 @mixin no-scrollbar {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  &::-webkit-scrollbar { display: none; }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 // ── CARD ───────────────────────────────────────────────
@@ -36,8 +38,14 @@
 // keyframe을 mixin 안에 포함 → 각 module에서 호출될 때 같은 해시로 스코프됨
 @mixin fade-up($duration: 0.28s, $delay: 0ms) {
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   opacity: 0;
   animation: fadeUp $duration var(--ease-out) #{$delay} forwards;
@@ -59,7 +67,7 @@
 // ── GLASS BLUR ─────────────────────────────────────────
 // 인자 없이 쓰면 CSS var 기반 → 테마 전환에 자동 반응
 @mixin glass($bg-color: null) {
-  background: if($bg-color != null, $bg-color, var(--glass-bg));
+  background: $bg-color or var(--glass-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
