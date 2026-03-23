@@ -6,6 +6,7 @@ import RecapView from '@/features/recap/RecapView'
 import RecordModal from '@/features/record/RecordModal'
 import TimelineView from '@/features/timeline/TimelineView'
 import { useNowMin } from '@/hooks/useNowMin'
+import { useTheme } from '@/hooks/useTheme'
 import { useRecordsStore } from '@/store/useRecordsStore'
 import { TABS } from '@/utils/tabs'
 import { calcAvgEmotion } from '@/utils/emotion'
@@ -17,6 +18,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<TabId>('home')
   const [modal, setModal] = useState<string | null>(null)
   const nowMin = useNowMin()
+  const { theme, toggleTheme } = useTheme()
 
   const values  = Object.values(records)
   const filled  = values.length
@@ -37,6 +39,8 @@ export default function App() {
       <Header
         filled={filled}
         avgEmo={avgEmo}
+        theme={theme}
+        onToggleTheme={toggleTheme}
         onReset={resetRecords}
       />
 

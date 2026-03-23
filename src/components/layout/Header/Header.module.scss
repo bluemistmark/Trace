@@ -2,7 +2,7 @@
 
 .header {
   padding: 18px 20px 14px;
-  @include glass(rgba(12, 12, 13, 0.97));
+  @include glass;
   border-bottom: 0.5px solid var(--border);
   flex-shrink: 0;
   z-index: 10;
@@ -22,7 +22,7 @@
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  background: $bg;
+  background: var(--bg);
   border: 1.5px solid var(--border);
   @include flex-center;
   flex-shrink: 0;
@@ -39,6 +39,47 @@
   font-size: 13px;
   color: var(--text-muted);
   margin-top: 1px;
+}
+
+// ── 우측 액션 그룹 ─────────────────────────────────────
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.themeBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--text-sub);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.1s;
+
+  &:hover  { background: var(--surface); color: var(--text); }
+  &:active { transform: scale(0.9); }
+}
+
+.resetBtn {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--text-sub);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.1s;
+
+  &:hover  { background: var(--surface); color: var(--text); }
+  &:active { transform: scale(0.95); }
 }
 
 // ── 인라인 요약 ────────────────────────────────────────

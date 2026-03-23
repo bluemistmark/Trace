@@ -1,4 +1,4 @@
-import Button from '@/components/ui/Button'
+import type { Theme } from '@/hooks/useTheme'
 import { getEmotionColor } from '@/utils/emotion'
 import { getDateStr } from '@/utils/time'
 import styles from './Header.module.scss'
@@ -6,10 +6,37 @@ import styles from './Header.module.scss'
 interface HeaderProps {
   filled: number
   avgEmo: number | null
+  theme: Theme
+  onToggleTheme: () => void
   onReset: () => void
 }
 
-export default function Header({ filled, avgEmo, onReset }: HeaderProps) {
+function IconSun() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 22 22" fill="none"
+      stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
+      <circle cx="11" cy="11" r="4.2" />
+      <line x1="11" y1="1.5" x2="11" y2="4.5" />
+      <line x1="11" y1="17.5" x2="11" y2="20.5" />
+      <line x1="1.5" y1="11" x2="4.5" y2="11" />
+      <line x1="17.5" y1="11" x2="20.5" y2="11" />
+      <line x1="4.3" y1="4.3" x2="6.4" y2="6.4" />
+      <line x1="15.6" y1="15.6" x2="17.7" y2="17.7" />
+      <line x1="4.3" y1="17.7" x2="6.4" y2="15.6" />
+      <line x1="15.6" y1="6.4" x2="17.7" y2="4.3" />
+    </svg>
+  )
+}
+
+function IconMoon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 22 22" fill="currentColor">
+      <path d="M20 13.5A9 9 0 0 1 8.5 2a8 8 0 1 0 11.5 11.5z" />
+    </svg>
+  )
+}
+
+export default function Header({ filled, avgEmo, theme, onToggleTheme, onReset }: HeaderProps) {
   const avgColor = avgEmo != null ? getEmotionColor(avgEmo) : '#555'
 
   return (
@@ -30,7 +57,17 @@ export default function Header({ filled, avgEmo, onReset }: HeaderProps) {
             <div className={styles.dateText}>{getDateStr()}</div>
           </div>
         </div>
-        <Button variant="ghost" onClick={onReset}>초기화</Button>
+
+        <div className={styles.actions}>
+          <button
+            className={styles.themeBtn}
+            onClick={onToggleTheme}
+            aria-label={theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환'}
+          >
+            {theme === 'dark' ? <IconSun /> : <IconMoon />}
+          </button>
+          <button className={styles.resetBtn} onClick={onReset}>초기화</button>
+        </div>
       </div>
 
       <div className={styles.summary}>

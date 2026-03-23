@@ -57,8 +57,15 @@
 }
 
 // ── GLASS BLUR ─────────────────────────────────────────
-@mixin glass($bg-color: rgba(12, 12, 13, 0.95)) {
-  background: $bg-color;
+// 인자 없이 쓰면 CSS var 기반 → 테마 전환에 자동 반응
+@mixin glass($bg-color: null) {
+  background: if($bg-color != null, $bg-color, var(--glass-bg));
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+@mixin glass-nav {
+  background: var(--glass-nav-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }

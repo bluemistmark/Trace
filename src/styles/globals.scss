@@ -8,22 +8,41 @@
   --primary-18: #{$primary-18};
   --primary-22: #{$primary-22};
 
-  --bg:         #{$bg};
-  --surface:    #{$surface};
-  --card:       #{$card};
-  --border:     #{$border};
+  // ── 다크 테마 (기본) ──────────────────────────────
+  --bg:         #0C0C0D;
+  --surface:    #17171A;
+  --card:       #202024;
+  --border:     #2A2A2E;
 
-  --text:       #{$text};
-  --text-sub:   #{$text-sub};
-  --text-muted: #{$text-muted};
+  --text:       #FFFFFF;
+  --text-sub:   rgba(255, 255, 255, 0.50);
+  --text-muted: rgba(255, 255, 255, 0.30);
+
+  --glass-bg:      rgba(12,  12,  13,  0.97);
+  --glass-nav-bg:  rgba(12,  12,  13,  0.95);
 
   --safe-bottom: #{$safe-bottom};
 
-  --ease:       #{$ease};
-  --ease-out:   #{$ease-out};
+  --ease:        #{$ease};
+  --ease-out:    #{$ease-out};
 
-  --radius-sm:  #{$radius-sm};
-  --radius-md:  #{$radius-md};
-  --radius-lg:  #{$radius-lg};
-  --radius-xl:  #{$radius-xl};
+  --radius-sm:   #{$radius-sm};
+  --radius-md:   #{$radius-md};
+  --radius-lg:   #{$radius-lg};
+  --radius-xl:   #{$radius-xl};
+}
+
+// ── 라이트 테마 ────────────────────────────────────────
+[data-theme='light'] {
+  --bg:         #F2F2F7;
+  --surface:    #FFFFFF;
+  --card:       #FFFFFF;
+  --border:     rgba(0, 0, 0, 0.09);
+
+  --text:       #1C1C1E;
+  --text-sub:   rgba(0, 0, 0, 0.50);
+  --text-muted: rgba(0, 0, 0, 0.35);
+
+  --glass-bg:     rgba(242, 242, 247, 0.96);
+  --glass-nav-bg: rgba(255, 255, 255, 0.94);
 }
